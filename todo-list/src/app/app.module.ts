@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component'; // ngModel lives there
 import { HeroService } from './hero.service';
 import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { MessagesComponent } from './messages/messages.component';
   ],
   providers: [/*providers array tells Angular to create a single shared instance of HeroService and
     inject into any class that asks for it.*/
-    HeroService,
+    HeroService, MessageService
   ],
   bootstrap: [AppComponent]
 })
