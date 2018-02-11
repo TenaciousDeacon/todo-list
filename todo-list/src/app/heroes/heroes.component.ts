@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
+import { HeroService } from '../hero.service';
 
 // ALWAYS import the Component symbol from the Angular core lib and note the component class with @Component
 // @Component is a decorator function that specifies the angular metadata for the component
@@ -14,11 +14,7 @@ import { HEROES } from '../mock-heroes';
 // always export the class so you can import it elsewhere..like in the AppModule
 // tslint:disable-next-line:no-trailing-whitespace
 export class HeroesComponent implements OnInit { // master detail view
-  // hero: Hero = {
-  //   id: 1,
-  //   name: 'Chumpchange'
-  // }; the page no longer displays because you changed the hero from a string to an object
-  heroes = HEROES;
+  heroes: Hero[];
 
   selectedHero: Hero; // renamed hero property
   onSelect(hero: Hero): void {// assigns the clicked hero from the template to selectedHero prop
@@ -26,9 +22,13 @@ export class HeroesComponent implements OnInit { // master detail view
   }
   // tslint:disable-next-line:no-trailing-whitespace
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+  }
   ngOnInit() { // a lifecycle hook that is a good place for putting initialization logic
+    this.getHeroes();
   }
 
 }

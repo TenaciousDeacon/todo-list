@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { Hero } from './hero';
+import { HEROES } from './mock-heroes';
 
+/*uses the service to send a message*/
 @Injectable()
 export class HeroService {
 
   constructor() { }
 
   getHeroes(): Observable<Hero[]> {
-    // Todo: send the message _after_ fetching the heroes
-    this.messageService.add('HeroService: fetched heroes');
     return of(HEROES);
+    /*of(HEROES) returns and Observable<Hero[]> that emits a single value, the array of mock hereos*/
   }
 }
 /*
