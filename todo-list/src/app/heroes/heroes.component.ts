@@ -13,7 +13,7 @@ import { HEROES } from '../mock-heroes';
 
 // always export the class so you can import it elsewhere..like in the AppModule
 // tslint:disable-next-line:no-trailing-whitespace
-export class HeroesComponent implements OnInit { 
+export class HeroesComponent implements OnInit { // master detail view
   // hero: Hero = {
   //   id: 1,
   //   name: 'Chumpchange'
