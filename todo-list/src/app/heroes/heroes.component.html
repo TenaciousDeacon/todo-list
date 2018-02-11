@@ -1,7 +1,17 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect (hero)">
-    <!--ngFor is Angular repeater directive-->
+    <!--ngFor is Angular repeater directive; don;t forget the *-->
+    <!--li is the host element-->
+    <!--heroes is the list form the HeroComponent class in heroes.component.ts-->
+    <!--hero holds the current hero object for each iteration through the list-->
+    <!--(click)="onSelect (hero)"
+      () around click tell Angular to listen for the <li> element's click event.
+      When the user clicks, Angular executes the onSelect(hero) expression.
+      onSelect() is a HeroesComponent method in heroes.component.ts
+      Angular calls it with the hero object displayed in the clicked <li>, the same
+      hero defined in the ngFor expression.
+    -->
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>

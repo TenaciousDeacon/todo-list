@@ -12,6 +12,7 @@ import { HEROES } from '../mock-heroes';
 // app-heroes matches the name of the HTML element that Ids this component within a parent components template
 
 // always export the class so you can import it elsewhere..like in the AppModule
+// tslint:disable-next-line:no-trailing-whitespace
 export class HeroesComponent implements OnInit { 
   // hero: Hero = {
   //   id: 1,
@@ -19,8 +20,8 @@ export class HeroesComponent implements OnInit {
   // }; the page no longer displays because you changed the hero from a string to an object
   heroes = HEROES;
 
-  selectedHero: Hero;
-  onSelect(hero: Hero): void {
+  selectedHero: Hero; // renamed hero property
+  onSelect(hero: Hero): void {// assigns the clicked hero from the template to selectedHero prop
     this.selectedHero = hero;
   }
   // tslint:disable-next-line:no-trailing-whitespace
